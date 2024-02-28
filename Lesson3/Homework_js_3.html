@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        .boxOne{
+            width: 17vw;
+            height: 17vw;
+            margin: 10px;
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<script>
+    // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом всередині
+    for (let i=0; i<10;i++){
+        document.write(`<div class="boxOne"><p>Box</p></div>`)
+    }
+    // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
+    for (let i=0; i<10;i++){
+        document.write(`<div class="boxOne"><p>Play</p>${i}</div>`)
+    }
+    // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
+
+    let i=0;
+    while(i<20){
+        document.write(`<div class="boxOne"><h1>Game</h1></div>`)
+        i++;
+    }
+    // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всередині.
+    //Тут змінну і не декларую, бо вона задекларована у завданні вище
+    while(i<20){
+        document.write(`<div class="boxOne"><h1>Game ${i}</h1></div>`)
+        i++;
+    }
+
+
+</script>
+</body>
+</html>
