@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+    <style>
+        .boxing{
+            width: 200px;
+            height: 200px;
+            background-color: lightyellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin:10px ;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+    function calcRectangle(a, b) {
+        return a * b;
+    }
+
+    let s1 = calcRectangle(2, 5);
+    console.log(s1);
+
+    // - створити функцію яка обчислює та повертає площу кола з радіусом r
+    function calcCircle(r) {
+        return 3.14*(r**2);
+    }
+
+    let s2 = calcCircle(3);
+    console.log(s2);
+
+    // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
+    function calcCylinder(h, r) {
+        return 2 * 3.14 * h * r;
+    }
+
+    let s3 = calcCylinder(3, 2);
+    console.log(s3);
+
+    // - створити функцію яка приймає масив та виводить кожен його елемент
+    function contArray(array) {
+        for (const arrayElement of array) {
+            console.log(arrayElement);
+        }
+    }
+
+    let users = [
+        {name: 'vasya', age: 31, status: false},
+        {name: 'petya', age: 30, status: true},
+        {name: 'kolya', age: 29, status: true},
+        {name: 'olya', age: 28, status: false},
+        {name: 'max', age: 30, status: true},
+        {name: 'anya', age: 31, status: false},
+        {name: 'oleg', age: 28, status: false},
+        {name: 'andrey', age: 29, status: true},
+        {name: 'masha', age: 30, status: true},
+        {name: 'olya', age: 31, status: false},
+        {name: 'max', age: 31, status: true}
+    ];
+    contArray(users);
+
+    // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
+    function para(text) {
+        document.write(`<p>${text}</p> `);
+    }
+    para('abrakadabra');
+
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
+    function ulOne(li) {
+        document.write(`<ul>
+                            <li>${li}</li>
+                            <li>${li}</li>
+                            <li>${li}</li>
+                        </ul>`);
+    }
+    ulOne('Були були');
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий.
+    // Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+    function ulTwo(text,num) {
+    for (let i=0;i<num;i++){
+        document.write(`<li>${text}</li>`)
+    }
+}
+ulTwo('Hello!',3)
+    // Підкажіть будь ласка яким чином добавити ul сюди, щось ніяк не стає
+
+
+
+    // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує
+    // для них список
+let mass = [1,3,true, 'go',false,-10];
+function arrayElement(arrays) {
+    for (const element of arrays) {
+        document.write(`<li>${element}</li> `)
+    }
+}
+arrayElement(mass);
+
+
+    // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить
+    // їх в документ. Для кожного об'єкту окремий блок.
+function forObject(objects) {
+    for (const object of objects) {
+        document.write(`<div class="boxing">${object.id} ${object.name} ${object.age}</div>
+         `)
+    }
+}
+let nameMass = [
+    {id:1, name:'petro',age:33},
+    {id:2, name:'ivan',age:31},
+    {id:3, name:'vasyl',age:35},
+    {id:4, name:'kolia',age:28}
+]
+    forObject(nameMass)
+    // - створити функцію яка повертає найменьше число з масиву
+    function minNum(){
+        let min = arguments[0];
+        for (const item of arguments) {
+            if (item<min){
+                min=item}
+            }
+        console.log('min', min);
+        return min;
+    }
+let result = minNum(1,-200,5,0,-5,-3);
+
+
+
+    // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає
+    // його. Приклад sum([1,2,10]) //->13
+function summ(arrs) {
+    let sum = 0
+    for (let i = 0; i < arrs.length; i++) {
+        sum += arrs[i];
+    }
+    console.log(sum);
+}
+let dodanoks = [1,2,10,8,2];
+summ(dodanoks);
+
+    // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
+    // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+
+    function swap(arr, index1, index2) {
+        arr[index1] = arr.splice(index2, 1, arr[index1])[0]
+    }
+    numbers = [11, 22, 33, 44];
+    swap(numbers, 0, 1);
+    console.log(numbers);
+
+    // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+    // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD')
+    // => 250
+    let valutes =[
+        {currency:'USD',value:40},
+        {currency:'EUR',value:42},
+        {currency:'PLZ',value:9},
+        {currency:'GBP',value:45}
+    ]
+function exchange(sumUAH,currencyValues,exchangeCurrency){
+    for (const currencyValue of currencyValues) {
+        if(currencyValue['currency']===exchangeCurrency){
+             let res = sumUAH/currencyValue['value']
+            console.log(res);
+        }
+    }
+}
+    exchange(10000,valutes,'USD');
+    exchange(10000,valutes,'PLZ');
+</script>
+</body>
+</html>
