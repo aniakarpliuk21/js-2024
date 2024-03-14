@@ -221,10 +221,12 @@ for (const coursesArrayElement of coursesArray) {
     let divModules = document.createElement('div');
     divModules.classList.add('modules')
     divModules.innerHTML = `<h3>Модулі, що вивчені:</h3>`;
+    let ulModule = document.createElement('ul')
+    divModules.append(ulModule);
     for (let i=0;i<coursesArrayElement.modules.length;i++) {
         let liModule = document.createElement('li');
         liModule.innerText = `${coursesArrayElement.modules[i]}`;
-        divModules.append(liModule);
+        ulModule.append(liModule);
     }
     divElement.append(divTitle,divMain,divModules);
     document.body.appendChild(divElement);
