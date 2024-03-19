@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button id="prev">Prev</button>
+<div id="buttons"></div>
+<button id="next">Next</button>
+<script>
+    //     зробити масив на 100 об'єктів та дві кнопки prev next
+    let objects = [];
+    function objectPush(objectName, objectAge){
+        let object = {name:objectName,
+            age:objectAge}
+        objects.push(object);
+    }
+    objectPush('Ania',31);
+    objectPush('Olena',29);
+    objectPush('Andriy',21);
+    objectPush('Vera',22);
+    objectPush('Nika',24);
+    objectPush('Dana',36);
+    objectPush('Igor',24);
+    objectPush('Oleksiy',22);
+    objectPush('Petro',51);
+    objectPush('Ivan',51);
+    objectPush('Margo',22);
+    objectPush('Petro',44);
+    objectPush('Ania',31);
+    objectPush('Olena',29);
+    objectPush('Andriy',21);
+    objectPush('Vera',22);
+    objectPush('Nika',24);
+    objectPush('Dana',36);
+    objectPush('Igor',24);
+    objectPush('Oleksiy',22);
+    objectPush('Petro',51);
+    objectPush('Ivan',51);
+    objectPush('Margo',22);
+    objectPush('Petro',44);
+    objectPush('Ania',31);
+    objectPush('Olena',29);
+    objectPush('Andriy',21);
+    objectPush('Vera',22);
+    objectPush('Nika',24);
+    objectPush('Dana',36);
+    objectPush('Igor',24);
+    objectPush('Oleksiy',22);
+    objectPush('Petro',51);
+    objectPush('Ivan',51);
+    objectPush('Margo',22);
+    objectPush('Petro',44);
+    objectPush('Ania',31);
+    objectPush('Olena',29);
+    objectPush('Andriy',21);
+    objectPush('Vera',22);
+    objectPush('Nika',24);
+    objectPush('Dana',36);
+    objectPush('Igor',24);
+    objectPush('Oleksiy',22);
+    objectPush('Petro',51);
+    objectPush('Ivan',51);
+    objectPush('Margo',22);
+    objectPush('Petro',44);
+    objectPush('Ania',31);
+    objectPush('Olena',29);
+    objectPush('Andriy',21);
+    objectPush('Vera',22);
+    objectPush('Nika',24);
+    objectPush('Dana',36);
+    objectPush('Igor',24);
+    objectPush('Oleksiy',22);
+    objectPush('Petro',51);
+    objectPush('Ivan',51);
+    objectPush('Margo',22);
+    objectPush('Petro',44);
+    objectPush('Ania',31);
+    objectPush('Olena',29);
+    objectPush('Andriy',21);
+    objectPush('Vera',22);
+    objectPush('Nika',24);
+    objectPush('Dana',36);
+    objectPush('Igor',24);
+    objectPush('Oleksiy',22);
+    objectPush('Petro',51);
+    objectPush('Ivan',51);
+    objectPush('Margo',22);
+    objectPush('Petro',44);
+    objectPush('Ania',31);
+    objectPush('Olena',29);
+    objectPush('Andriy',21);
+    objectPush('Vera',22);
+    objectPush('Nika',24);
+    objectPush('Dana',36);
+    objectPush('Igor',24);
+    objectPush('Oleksiy',22);
+    objectPush('Petro',51);
+    objectPush('Ivan',51);
+    objectPush('Margo',22);
+    objectPush('Petro',44);
+    objectPush('Ania',31);
+    objectPush('Olena',29);
+    objectPush('Andriy',21);
+    objectPush('Vera',22);
+    objectPush('Nika',24);
+    objectPush('Dana',36);
+    objectPush('Igor',24);
+    objectPush('Oleksiy',22);
+    objectPush('Petro',51);
+    objectPush('Ivan',51);
+    objectPush('Margo',22);
+    objectPush('Petro',44);
+    objectPush('Ania',31);
+    objectPush('Olena',29);
+    objectPush('Andriy',21);
+    objectPush('Vera',22);
+    // при завантажені сторінки з'являються перші 10 об'єктів.
+    //     При натисканні next виводяться настпні 10 об'єктів
+    // При натисканні prev виводяться попередні 10 об'єктів
+
+    let start = 0;
+    let step = 10;
+    let limit = start + step;
+    let ul = document.createElement('ul')
+    document.body.onload = function () {
+        for (let i = start; i <step; i++) {
+            let li = document.createElement('li')
+            ul.appendChild(li)
+            li.innerText = `${objects[i].name} ${objects[i].age}`;
+            }
+        start = limit;
+        limit = limit + step;
+    };
+buttons.appendChild(ul);
+
+    next.onclick = function () {
+            for (let i = start; i < limit; i++) {
+                if (i < objects.length) {
+                    let li2 = document.createElement('li')
+                    ul.appendChild(li2)
+                    li2.innerText = `${objects[i].name} ${objects[i].age}`;
+                }
+            }
+            start = limit;
+            limit = limit + step;
+        };
+
+        // for (let i = limit; i <step; i++) {
+        //     let li = document.createElement('li')
+        //     ul.appendChild(li)
+        //     li.innerText = `${objects[i].name} ${objects[i].age}`;
+        // }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form id="ageStatus">
+    <input id="i1" type="number" name="age" placeholder="Введіть свій вік">
+    <button id="button">Send</button>
+</form>
+<script>
+    //     - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні
+    //     на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+    let form = document.forms[0];
+    form.onsubmit = function (ev){
+        ev.preventDefault();
+        if(this.age.value<18){
+            console.log('Вітаю, ваш вік не пройшов перевірку!')
+        }else{console.log('Вітаю!!!Перевірку пройдено!!!')}
+    }
+
+</script>
+</body>
+</html>

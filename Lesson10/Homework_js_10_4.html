@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк,-->
+<!--третій вмиіст ячеєк.-->
+
+<form>
+    <input id="one" type="number" name="numLines" min="1" placeholder="Введіть кількість рядків">
+    <input id="two" type="number" name="numCells" min="1" placeholder="Введіть кількість ячейок">
+    <input id="three" type="text" name="textCell" placeholder="Введіть текст">
+    <button id="button">Створити таблицю</button>
+</form>
+<div id="container"></div>
+<script>
+    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // (Додатковачастина для завдання)
+    let button = document.getElementById('button')
+    button.onclick = function (){
+        let form = document.forms[0];
+        form.onsubmit = function (ev){
+            ev.preventDefault();
+            // console.log('hjk')
+            let exel = document.createElement('div')
+            exel.innerText =this.textCell.value
+            let container = document.getElementById('container')
+            container.appendChild(exel)
+        }
+    }
+
+    // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з
+    // довільним блоком, в середині якого є значення "100грн"
+    // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
+    //     зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
+    //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
+</script>
+</body>
+</html>
