@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .flex{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .zam{
+            border: 3px solid pink;
+            margin: 10px;
+        }
+        img{
+            width: 50px;
+            height:50px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    // - взяти https://dummyjson.com/docs/carts та вивести інформацію про всі корзини. Відобразити
+    // всі поля кожної корзини.
+    fetch('https://dummyjson.com/carts')
+        .then(res => res.json())
+        .then(value=> {
+            let {carts} = value
+            for (const cart of carts) {
+                console.log(cart)
+                let divZam = document.createElement('div')
+                divZam.classList.add('zam')
+                let p1 = document.createElement('p');
+                p1.innerText =`Номер замовлення ${cart.id}`
+                let p2 = document.createElement('p');
+                p2.innerText =`Ідентифікатор користувача ${cart.userId}`
+                let divProduct = document.createElement('div')
+                divProduct.classList.add('zam','flex')
+                //
+                console.log('--------------------');
+                for (const products of cart.products) {
+                    let prod = document.createElement('div')
+                    prod.classList.add('zam')
+                    let p3 = document.createElement('p')
+                    p3.innerText = `${products.title}`
+                    let img = document.createElement('div')
+                    img.classList.add('img')
+                    img.innerHTML = `<img src=${products.thumbnail} alt="img">`
+                    let p4 = document.createElement('p')
+                    p4.innerText = `Ідентифікатор - ${products.id}
+                    Кількість - ${products.quantity}
+                    Знижка - ${products.discountPercentage}
+                    Ціна зі знижкою - ${products.discountedPrice}
+                    Всього - ${products.quantity}`
+                    prod.append(p3,img,p4)
+                    divProduct.appendChild(prod)
+                }
+                let p5 = document.createElement('p');
+                p5.innerText =`Загальна кількість - ${cart.totalQuantity}
+                Всього ${cart.total}`
+                divZam.append(p1,p2,divProduct,p5)
+                document.body.appendChild(divZam)
+            }
+        })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users details</title>
+</head>
+<body>
+<a href="users.html">Back to Users</a>
+<script>
+let userId = new URL(location.href).searchParams.get('id');
+let url =  'https://jsonplaceholder.typicode.com/users/'+ userId;
+fetch(url).then (res=>res.json())
+.then(user=> {
+    let div = document.createElement('div')
+    let p = document.createElement('p')
+    p.innerHTML = `<h2>${user.id} ${user.name}</h2> `
+    let p2 = document.createElement('p')
+    p2.innerHTML = `Імейл -${user.email}<br>
+    Телефон - ${user.phone}<br>
+    Логін - ${user.userName}<br>
+    Вебсайт - ${user.website}`;
+    let p3 = document.createElement('p')
+    p3.innerText = `Компіня:
+    Назва - ${user.company.name}
+    BS - ${user.company.bs}
+    Catch Phrase - ${user.company.catchPhrase}`
+    let p4 = document.createElement('p')
+    p4.innerText = `Адреса:
+    Місто - ${user.address.city}
+    Геолокація - Lat ${user.address.geo.lat} Lig${user.address.geo.lng}
+    Вулиця - ${user.address.street}
+    Suite - ${user.address.suite}
+    Поштовий код - ${user.address.zipcode}`
+    div.append(p,p2,p3,p4)
+    document.body.appendChild(div);
+})
+</script>
+</body>
+</html>
